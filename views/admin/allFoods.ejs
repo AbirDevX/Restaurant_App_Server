@@ -1,0 +1,145 @@
+<%- include("./common/head.ejs") %>
+
+<body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
+  <div class="wrapper">
+    <%- include("./common/header.ejs") %> <%-
+    include("./common/leftSideBar.ejs") %>
+    <!-- CONTENT START-->
+    <div class="content-wrapper">
+      <div class="container-full">
+        <div class="content-header">
+          <!-- PAGE HEADER START -->
+          <div class="content-header">
+            <div class="d-flex align-items-center">
+              <div class="mr-auto">
+                <h3 class="page-title">All Foods</h3>
+                <div class="d-inline-block align-items-center">
+                  <nav>
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <a href="#"><i class="mdi mdi-home-outline"></i></a>
+                      </li>
+                      <li class="breadcrumb-item" aria-current="page">Admin</li>
+                      <li class="breadcrumb-item active" aria-current="page">
+                        All-Foods
+                      </li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- PAGE HEADER END -->
+          <div class="col-sm-6 mx-auto">
+            <% if( flashMsg && flashMsg?.success?.length > 0) { %>
+            <div class="alert alert-success mx-" role="alert">
+              <%= flashMsg.success %>
+            </div>
+            <% } %> <% if(flashMsg && flashMsg?.error?.length > 0) { %>
+            <div class="alert alert-danger mx-" role="alert">
+              <%= flashMsg.error %>
+            </div>
+            <% } %> <% if(flashMsg && flashMsg?.msg?.length > 0) { %>
+            <div class="alert alert-warning mx-" role="alert">
+              <%= flashMsg.msg %>
+            </div>
+            <% } %>
+          </div>
+          <!-- Main Section Start -->
+          <section class="content">
+            <div class="col-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h4 class="box-title">Foods Table</h4>
+                  <div class="box-controls pull-right">
+                    <div class="lookup lookup-circle lookup-right">
+                      <input type="text" name="s" />
+                    </div>
+                  </div>
+                </div>
+                <div class="box-body no-padding">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Name</th>
+                          <th>Img</th>
+                          <th>Date</th>
+                          <th>Sub Category</th>
+                          <th>Amount</th>
+                          <th>Status</th>
+                          <th>Category</th>
+                          <th>Switch</th>
+                        </tr>
+                        <% let id=0 %>
+                      </thead>
+                      <!-- TABLE CONTENT -->
+                      <% if(foods){ %> <% for( let food of foods) { %>
+                      <tr>
+                        <td>0<%= ++id %></td>
+                        <td><%= food?.name %></td>
+                        <td>
+                          <img
+                            src="/foods/<%= food?.img %>"
+                            class="rounded-3"
+                            style="width: 50px"
+                            alt="Avatar"
+                          />
+                        </td>
+
+                        <td>
+                          <span class="text-muted"
+                            ><i class="fa fa-clock-o pr-1"></i><%=
+                            food?.createdAt?.toISOString()?.split("T")[0]
+                            %></span
+                          >
+                        </td>
+                        <td>
+                          <span
+                            class="badge badge-pill <%= food?.subCategory === 'VEG' ? 'badge-success' :'badge-danger' %>"
+                          >
+                            <%= food?.subCategory?.split('_').join(" ") %>
+                          </span>
+                        </td>
+                        <td>
+                          <div class="d-flex flex-column">
+                            <span>₹ <%= food?.price %></span>
+                            <span>₹ <%= food?.shallPrice %> for shall</span>
+                          </div>
+                        </td>
+                        <td>
+                          <span
+                            class="badge badge-pill <%= food?.isAvailable ? 'badge-success' : 'badge-danger' %>"
+                            ><%= food?.isAvailable ? 'Available' : 'Not available' %></span
+                          >
+                        </td>
+                        <td style="font-weight: bolder"><span
+                          ><%= food?.category%></span</td>
+                        <td>
+                          <a href="/admin/switch-food-status/<%= food?._id %>">
+                            <img
+                              src="/images/arrows.png"
+                              class="rounded-3"
+                              style="width: 30px"
+                              alt="Avatar"
+                            />
+                          </a>
+                        </td>
+                      </tr>
+                      <% } %> <% } %>
+                      <!-- TABLE CONTENT -->
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Main Section End -->
+        </div>
+      </div>
+    </div>
+    <!-- CONTENT END -->
+    <%- include("./common/footer.ejs") %>
+  </div>
+</body>

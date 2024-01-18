@@ -1,0 +1,297 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+  <!-- sidebar-->
+  <section class="sidebar">
+    <div class="user-profile">
+      <div class="ulogo">
+        <a href="/admin/dashboard">
+          <!-- logo for regular state and mobile devices -->
+          <div class="d-flex align-items-center justify-content-center">
+            <img src="/images/logo-dark.png" alt="" />
+            <h3><b>Restaurant</b> Admin</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- sidebar menu-->
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="<%= url === '/admin/dashboard' ? 'active' : '' %>">
+        <a href="/admin/dashboard">
+          <i data-feather="pie-chart"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+       <!-- ODER START -->
+      <!-- <li class="header nav-small-cap">Order</li> -->
+      <li
+        class="treeview <%= ['/admin/all-orders'].includes(url) && 'active' %>"
+      >
+        <a href="#">
+          <i data-feather="message-circle"></i>
+          <span>Customize Order</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= url === '/admin/all-orders' && 'active' %>">
+            <a href="/admin/all-orders"><i class="ti-more"></i>All Order</a>
+          </li>
+        </ul>
+      </li>
+      <!-- ORDER END -->
+      <!-- FOOD START -->
+      <!-- <li class="header nav-small-cap">Foods</li> -->
+      <li
+        class="treeview <%= ['/admin/add-food', '/admin/all-foods'].includes(url) && 'active' %>"
+      >
+        <a href="#">
+          <i data-feather="message-circle"></i>
+          <span>Customize Foods</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= url === '/admin/all-foods' && 'active' %>">
+            <a href="/admin/all-foods"><i class="ti-more"></i>All Foods</a>
+          </li>
+          <li class="<%= url === '/admin/add-food' && 'active' %>">
+            <a href="/admin/add-food"><i class="ti-more"></i>Add Food</a>
+          </li>
+        </ul>
+      </li>
+      <!-- FOOD END -->
+      <!-- SERVICES START -->
+      <!-- <li class="header nav-small-cap">Services</li> -->
+      <li
+        class="treeview <%= ['/admin/all-services', '/admin/add-service'].includes(url) && 'active' %>"
+      >
+        <a href="#">
+          <i data-feather="message-circle"></i>
+          <span>Customize Services</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= url === '/admin/all-services' && 'active' %>">
+            <a href="/admin/all-services"
+              ><i class="ti-more"></i>All Services</a
+            >
+          </li>
+          <li class="<%= url === '/admin/add-service' && 'active' %>">
+            <a href="/admin/add-service"><i class="ti-more"></i>Add Service</a>
+          </li>
+        </ul>
+      </li>
+      <!-- SERVICE END -->
+      <!-- OUR_TEAM START -->
+      <!-- <li class="header nav-small-cap">Our Team</li> -->
+      <li
+        class="treeview <%= ['/admin/all-teams', '/admin/add-team'].includes(url) && 'active' %>"
+      >
+        <a href="#">
+          <i data-feather="message-circle"></i>
+          <span>Customize Our Team</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= url === '/admin/all-teams' && 'active' %>">
+            <a href="/admin/all-teams"><i class="ti-more"></i>All Our Team</a>
+          </li>
+          <li class="<%= url === '/admin/add-team' && 'active' %>">
+            <a href="/admin/add-team"><i class="ti-more"></i>Add Our Team</a>
+          </li>
+        </ul>
+      </li>
+      <!-- OUR_TEAM END -->
+      <!-- TABLE START -->
+      <!-- <li class="header nav-small-cap">Tables</li> -->
+      <li
+        class="treeview <%= ['/admin/all-tables', '/admin/add-table'].includes(url) && 'active' %>"
+      >
+        <a href="#">
+          <i data-feather="message-circle"></i>
+          <span>Customize Table</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= url === '/admin/all-tables' && 'active' %>">
+            <a href="/admin/all-tables"><i class="ti-more"></i>All Table</a>
+          </li>
+          <li class="<%= url === '/admin/add-table' && 'active' %>">
+            <a href="/admin/add-table"><i class="ti-more"></i>Add Table</a>
+          </li>
+        </ul>
+      </li>
+      <!-- TABLE END -->
+      <!-- CONTACT US START -->
+      <!-- <li class="header nav-small-cap">Contact-Us</li> -->
+      <li
+        class="treeview <%= ['/admin/all-contact-us-msg'].includes(url) && 'active' %>"
+      >
+        <a href="#">
+          <i data-feather="message-circle"></i>
+          <span>Customize Contact-us</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= url === '/admin/all-contact-us-msg' && 'active' %>">
+            <a href="/admin/all-contact-us-msg"
+              ><i class="ti-more"></i>All Contact-Us Msg</a
+            >
+          </li>
+        </ul>
+      </li>
+      <!-- CONTACT US END -->
+      <!-- TESTIMONIALS START -->
+      <li
+        class="treeview <%= ['/admin/all-testimonials'].includes(url) && 'active' %>"
+      >
+        <a href="#">
+          <i data-feather="message-circle"></i>
+          <span>Customize Testimonials</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= url === '/admin/all-testimonials' && 'active' %>">
+            <a href="/admin/all-testimonials"
+              ><i class="ti-more"></i>All Testimonials</a
+            >
+          </li>
+        </ul>
+      </li>
+      <!-- TESTIMONIALS END -->
+      <li class="header nav-small-cap">User Interface</li>
+
+      <li class="treeview">
+        <a href="#">
+          <i data-feather="grid"></i>
+          <span>Components</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="components_alerts.html"><i class="ti-more"></i>Alerts</a>
+          </li>
+          <li>
+            <a href="components_badges.html"><i class="ti-more"></i>Badge</a>
+          </li>
+          <li>
+            <a href="components_buttons.html"><i class="ti-more"></i>Buttons</a>
+          </li>
+          <li>
+            <a href="components_sliders.html"><i class="ti-more"></i>Sliders</a>
+          </li>
+          <li>
+            <a href="components_dropdown.html"
+              ><i class="ti-more"></i>Dropdown</a
+            >
+          </li>
+          <li>
+            <a href="components_modals.html"><i class="ti-more"></i>Modal</a>
+          </li>
+          <li>
+            <a href="components_nestable.html"
+              ><i class="ti-more"></i>Nestable</a
+            >
+          </li>
+          <li>
+            <a href="components_progress_bars.html"
+              ><i class="ti-more"></i>Progress Bars</a
+            >
+          </li>
+        </ul>
+      </li>
+
+      <li class="header nav-small-cap">EXTRA</li>
+
+      <li class="treeview">
+        <a href="#">
+          <i data-feather="layers"></i>
+          <span>Multilevel</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="#">Level One</a></li>
+          <li class="treeview">
+            <a href="#"
+              >Level One
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#">Level Two</a></li>
+              <li class="treeview">
+                <a href="#"
+                  >Level Two
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-right pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                  <li><a href="#">Level Three</a></li>
+                  <li><a href="#">Level Three</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">Level One</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="/admin/logout">
+          <i data-feather="lock"></i>
+          <span>Log Out</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <div class="sidebar-footer">
+    <!-- item-->
+    <a
+      href="javascript:void(0)"
+      class="link"
+      data-toggle="tooltip"
+      title=""
+      data-original-title="Settings"
+      aria-describedby="tooltip92529"
+      ><i class="ti-settings"></i
+    ></a>
+    <!-- item-->
+    <a
+      href="mailbox_inbox.html"
+      class="link"
+      data-toggle="tooltip"
+      title=""
+      data-original-title="Email"
+      ><i class="ti-email"></i
+    ></a>
+    <!-- item-->
+    <a
+      href="javascript:void(0)"
+      class="link"
+      data-toggle="tooltip"
+      title=""
+      data-original-title="Logout"
+      ><i class="ti-lock"></i
+    ></a>
+  </div>
+</aside>

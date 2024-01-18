@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/admin/style/error.css" />
+  </head>
+  <body class="loading">
+    <div style="display: flex; justify-content: center">
+      <a href="/admin/dashboard" style="text-decoration: none">
+        <h2 style="padding: 10px; border: 2px black solid">
+          Go Back To Dashboard
+        </h2>
+      </a>
+    </div>
+    <h1>500</h1>
+    <h2>Unexpected Error <b>:(</b></h2>
+    <div class="gears">
+      <div class="gear one">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="gear two">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="gear three">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      $(function () {
+        setTimeout(function () {
+          $("body").removeClass("loading");
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

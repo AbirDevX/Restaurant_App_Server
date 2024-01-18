@@ -1,0 +1,188 @@
+<%- include("./common/head.ejs") %>
+
+<body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
+  <div class="wrapper">
+    <%- include("./common/header.ejs") %> <%-
+    include("./common/leftSideBar.ejs") %>
+    <!-- CONTENT START-->
+    <div class="content-wrapper">
+      <div class="container-full">
+        <!-- PAGE HEADER START -->
+        <div class="content-header">
+          <div class="d-flex align-items-center">
+            <div class="mr-auto">
+              <h3 class="page-title">Add Food</h3>
+              <div class="d-inline-block align-items-center">
+                <nav>
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="#"><i class="mdi mdi-home-outline"></i></a>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page">Admin</li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      Add-Food
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- PAGE HEADER END -->
+        <!-- Main Contain Start -->
+        <form
+          action="/admin/add-food"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="card-body">
+            <!-- Name START-->
+            <div class="form-group">
+              <label for="titleExample">Name Of Food</label>
+              <input
+                type="text"
+                name="name"
+                value="<%= value ? value?.name :'' %>"
+                class="form-control p-3"
+                id="titleExample"
+                placeholder="Enter Food Name"
+              />
+              <p class="text-danger text-sm">
+                <% if(error && error?.name){ %> <%= error.name?.message %> <% }
+                %>
+              </p>
+            </div>
+            <!-- NAME END -->
+            <!-- Price START-->
+            <div class="form-group">
+              <label for="priceExample">Food price</label>
+              <input
+                type="number"
+                name="price"
+                value="<%= value ? value?.price :'' %>"
+                class="form-control p-3"
+                id="priceExample"
+                placeholder="Enter Food Price"
+              />
+              <p class="text-danger text-sm">
+                <% if(error && error?.price){ %> <%= error.price?.message %> <%
+                } %>
+              </p>
+            </div>
+            <!-- Price END -->
+            <!-- Shall Price START-->
+            <div class="form-group">
+              <label for="shallPriceExample">Food Shall price</label>
+              <input
+                type="number"
+                name="shallPrice"
+                value="<%= value ? value?.shallPrice :'' %>"
+                class="form-control p-3"
+                id="shallPriceExample"
+                placeholder="Enter Food Shall Price"
+              />
+              <p class="text-danger text-sm">
+                <% if(error && error?.shallPrice){ %> <%=
+                error.shallPrice?.message %> <% } %>
+              </p>
+            </div>
+            <!-- Shall Price END -->
+            <!-- description START-->
+            <div class="form-group">
+              <label for="descriptionExample">Post Description</label>
+              <input
+                type="text"
+                name="description"
+                value="<%= value ? value?.description :'' %>"
+                class="form-control p-3"
+                id="descriptionExample"
+                placeholder="Enter Food description"
+              />
+              <p class="text-danger text-sm">
+                <% if(error && error?.description){ %> <%=
+                error.description?.message %> <% } %>
+              </p>
+            </div>
+            <!-- description END -->
+            <!-- IMG START -->
+            <div class="form-group">
+              <label for="exampleInputFile">File input</label>
+              <div class="input-group ">
+                <div class="custom-file">
+                  <input
+                    type="file"
+                    name="img"
+                    class="custom-file-input p-3"
+                    id="exampleInputFile"
+                    accept="image/png, image/jpg, image/jpeg, image/avif"
+                  />
+                  <label class="custom-file-label" for="exampleInputFile"
+                    >Choose file</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-4">
+                  <label for="Category">Category :</label>
+                  <select
+                    class="custom-select form-control p-3"
+                    id="Category"
+                    name="category"
+                  >
+                    <option value="">Select category</option>
+                    <option value="BREAKFAST">BREAKFAST</option>
+                    <option value="LUNCH">LUNCH</option>
+                    <option value="DINNER">DINNER</option>
+                  </select>
+                  <p class="text-danger text-sm">
+                    <% if(error && error?.category){ %> <%=
+                    error.category?.message %> <% } %>
+                  </p>
+                </div>
+                <div class="col-4">
+                  <label for="subCategory">Sub Category :</label>
+                  <select
+                    class="custom-select form-control p-3"
+                    id="subCategory"
+                    name="subCategory"
+                  >
+                    <option value="">Select sub category</option>
+                    <option value="VEG">VEG</option>
+                    <option value="NON_VEG">NON_VEG</option>
+                  </select>
+                  <p class="text-danger text-sm">
+                    <% if(error && error?.subCategory){ %> <%=
+                    error.subCategory?.message %> <% } %>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- IMG END -->
+            <div class="form-check">
+              <input
+                type="checkbox"
+                checked
+                required
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+              <label class="form-check-label" for="exampleCheck1"
+                >Check me out</label
+              >
+            </div>
+          </div>
+          <!-- card-body -->
+
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+        <!-- Main Contain End -->
+      </div>
+    </div>
+    <!-- CONTENT END -->
+    <%- include("./common/footer.ejs") %>
+  </div>
+</body>

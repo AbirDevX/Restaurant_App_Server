@@ -1,0 +1,100 @@
+<%- include("./common/head.ejs") %>
+
+<body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
+  <div class="wrapper">
+    <%- include("./common/header.ejs") %> <%-
+    include("./common/leftSideBar.ejs") %>
+    <!-- CONTENT START-->
+    <div class="content-wrapper">
+      <div class="container-full">
+        <!-- PAGE HEADER START -->
+        <div class="content-header">
+          <div class="d-flex align-items-center">
+            <div class="mr-auto">
+              <h3 class="page-title">Add Table</h3>
+              <div class="d-inline-block align-items-center">
+                <nav>
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="#"><i class="mdi mdi-home-outline"></i></a>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page">Admin</li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      Add-Table
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- PAGE HEADER END -->
+        <!-- Main Contain Start -->
+        <form
+          action="/admin/add-table"
+          method="post"
+        >
+          <div class="card-body">
+              <div class="row">
+                <div class="col-4">
+                  <label for="table_name">Give a name :</label>
+                  <input
+                type="text"
+                name="name"
+                value="<%= value ? value?.name :'' %>"
+                class="form-control p-3"
+                id="table_name"
+                placeholder="Enter table name"
+              />
+                  <p class="text-danger text-sm">
+                    <% if(error && error?.name){ %> <%=
+                    error.name?.message %> <% } %>
+                  </p>
+                </div>
+                <div class="col-4">
+                  <label for="capacity">Capacity :</label>
+                  <select
+                    class="custom-select form-control p-3"
+                    id="capacity"
+                    name="capacity"
+                  >
+                    <option value="">Capacity of table</option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                  </select>
+                  <p class="text-danger text-sm">
+                    <% if(error && error?.capacity){ %> <%=
+                    error.capacity?.message %> <% } %>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- IMG END -->
+            <div class="form-check">
+              <input
+                type="checkbox"
+                checked
+                required
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+              <label class="form-check-label" for="exampleCheck1"
+                >Check me out</label
+              >
+            </div>
+          </div>
+          <!-- card-body -->
+
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+        <!-- Main Contain End -->
+      </div>
+    </div>
+    <!-- CONTENT END -->
+    <%- include("./common/footer.ejs") %>
+  </div>
+</body>
